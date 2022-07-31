@@ -3,9 +3,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../screens/home/HomeScreen';
 import { DetailScreen } from '../screens/detail/DetailScreen';
 import { SimplePokemon } from '../interfaces/PokemonInterface';
+import { SearchScreen } from '../screens/search/SearchScreen';
 
 export type RootStackParams = {
-    HomeScreen: undefined;
+    SearchScreen: undefined;
     DetailScreen: {
         simplePokemon: SimplePokemon,
         color: string
@@ -13,7 +14,7 @@ export type RootStackParams = {
 }
 
 const Stack = createStackNavigator<RootStackParams>();
-export const StackNavigation = () => {
+export const SearchTabNavigation = () => {
     return (
         <Stack.Navigator
             screenOptions={{
@@ -24,7 +25,7 @@ export const StackNavigation = () => {
             }}
             
         >
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="SearchScreen" component={SearchScreen} />
         <Stack.Screen name="DetailScreen" component={DetailScreen} />
         </Stack.Navigator>
     )

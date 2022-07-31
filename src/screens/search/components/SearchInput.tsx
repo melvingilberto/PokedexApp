@@ -5,16 +5,18 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useDevouncedValue } from '../../../hooks/useDevouncedValue';
 
 interface Props {
-    style?: StyleProp<ViewStyle>
+    setTerm: (value:string) => void;
+    style?: StyleProp<ViewStyle>;
 }
 
-export const SearchInput = ({style} : Props) => {
+export const SearchInput = ({style, setTerm} : Props) => {
 
     const [ textValue, setTextValue ] = useState('');
 
     const deboncedValue = useDevouncedValue(textValue);
 
     useEffect(() => {
+        setTerm(deboncedValue);
     }, [deboncedValue])
     
 
